@@ -7,10 +7,8 @@ import DiaryEntryList from '../components/DiaryEntry/DiaryEntryList.js';
 import "./DiaryPage.css"
 
 function DiaryPage() {
-  const [isUpdating, setIsUpdating] = useState(false); // Stav pro sledování aktualizace itineráře
-  const [showUpdateModal, setShowUpdateModal] = useState(false); // Stav pro sledování zobrazení modálního okna pro update, posílám dál do createFormu
-  const { error, itineraryList, state, handlerMap } = useContext(itineraryContext); // z contextu nahrávám funkci itinerary/delete
-  const { diaeryerror, diaryEntryList, diarystate, diaryhandlerMap } = useContext(diaryEntryContext); // contextem listuji všechny itineráře, které mám na serveru
+  const { itineraryList } = useContext(itineraryContext); // z contextu nahrávám funkci itinerary/delete
+  const { diaryEntryList } = useContext(diaryEntryContext); // contextem listuji všechny itineráře, které mám na serveru
   let { itineraryId } = useParams();
 
   const itineraryData = itineraryList.find((inv) => inv.id === itineraryId);
@@ -23,21 +21,6 @@ function DiaryPage() {
     return <div className="loading-state">Loading diary data...</div>;
   }
   console.log(diaryEntryData)
-
-
-  
-  const handleDelete = async () => { //funkce pro mazání itineráře, funguje díky contextu, posílám tam jen id itineráře
-
-    await handlerMap.itineraryDelete({
-    id:itineraryData.id
-    });
-}   
-
-  // Funkce pro otevření modálního okna pro update
-  const handleOpenUpdateModal = () => {
-    setShowUpdateModal(true); //nastavuje showupdate na true - informace pro update form
-    setIsUpdating(true);  //nastavuje setIsUpdating na true - informace pro update form
-  };
 
 
 

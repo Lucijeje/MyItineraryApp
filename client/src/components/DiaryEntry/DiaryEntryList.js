@@ -7,7 +7,7 @@ import "./DiaryEntryList.css"
 import DiaryEntryForm from "./DiaryEntryForm";
 
 function DiaryEntryList({data}) {
-    const { error, diaryEntryList, state, handlerMap } = useContext(diaryEntryContext); // contextem listuji všechny itineráře, které mám na serveru
+    const { handlerMap } = useContext(diaryEntryContext); // contextem listuji všechny itineráře, které mám na serveru
 
 
     const handleDelete = async (id) => { //funkce pro mazání itineráře, funguje díky contextu, posílám tam jen id itineráře

@@ -13,7 +13,7 @@ const CreateItineraryContainer = ({ defaultValues }) => {
     setShowModal(true);
     setIsEditing(true); // Nastavení isEditing na true při otevření modálního okna
   };
-  const { state, handlerMap } = useContext(itineraryContext);
+  // Context available if needed
  
 
   return (

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { itineraryContext } from "./ItineraryContext.js";
 import API_BASE_URL from "../../config/api.js";
 
@@ -22,13 +22,13 @@ function ItineraryProvider({ children }) {
   };
 
   // Helper function to sort itineraries by startDate (nearest first)
-  const sortItinerariesByDate = (itineraries) => {
+  const sortItinerariesByDate = useCallback((itineraries) => {
     return [...itineraries].sort((a, b) => {
       const dateA = parseDate(a.startDate);
       const dateB = parseDate(b.startDate);
       return dateA - dateB; // Ascending order (nearest first)
     });
-  };
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -44,7 +44,7 @@ function ItineraryProvider({ children }) {
     };
 
     fetchData();
-  }, []); // Načte seznam itinerářů pouze při prvním načtení
+  }, [sortItinerariesByDate]); // Načte seznam itinerářů pouze při prvním načtení
 
   async function itineraryCreate(dtoIn) {
     console.log(dtoIn)

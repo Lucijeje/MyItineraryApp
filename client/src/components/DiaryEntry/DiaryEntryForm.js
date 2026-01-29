@@ -12,11 +12,9 @@ function DiaryEntryForm({dayPlanId, itineraryId, id, action, date, dayOfWeek}) {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const { state, handlerMap } = useContext(diaryEntryContext);
+  const { handlerMap } = useContext(diaryEntryContext);
 
-
-
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit } = useForm();
   
    // Funkce pro zpracování formuláře
    const handleForm = async (formData) => {

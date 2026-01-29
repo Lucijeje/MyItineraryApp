@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Form, Modal, Button, Alert } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
-import { useState, useContext, useEffect} from "react";
+import { useState, useContext, useEffect, useCallback} from "react";
 import { itineraryContext } from "./ItineraryContext"; //nahrání contextu itinerary
 import AlertDisplay from '../AlertDisplay';
 
@@ -19,16 +19,11 @@ const CreateItineraryForm = ({ show, handleClose, defaultValues, isUpdating }) =
     defaultValues: defaultValues,
   }); //použití useForm
   
-  const { state, handlerMap } = useContext(itineraryContext);
+  const { handlerMap } = useContext(itineraryContext);
   const [showAlert, setShowAlert] = useState(false);
   
   // Watch startDate to check if it's in the past
   const startDateValue = watch('startDate');
-
-  const handleCloseModal = () => { 
-    setShowAlert(true); // Zobrazit alert před zavřením modálního okna
-    handleClose();
-  };
 
   // Check if start date is in the past
   const isStartDateInPast = () => {
@@ -50,7 +45,7 @@ const CreateItineraryForm = ({ show, handleClose, defaultValues, isUpdating }) =
   };
 
   //funkce na převod DD.MM.YYYY na YYYY-MM-DD pro date input
-  const formatDateForInput = (dateString) => {
+  const formatDateForInput = useCallback((dateString) => {
     if (!dateString) return '';
     // Pokud už je ve formátu YYYY-MM-DD, vrať to
     if (dateString.match(/^\d{4}-\d{2}-\d{2}$/)) {
@@ -70,7 +65,7 @@ const CreateItineraryForm = ({ show, handleClose, defaultValues, isUpdating }) =
     } catch (e) {
       return '';
     }
-  };
+  }, []);
 
   //pokud se změní defaultValues formulář se aktualizuje s novými hodnotami
   useEffect(() => {
@@ -84,7 +79,7 @@ const CreateItineraryForm = ({ show, handleClose, defaultValues, isUpdating }) =
     } else {
       reset({});
     }
-  }, [defaultValues, reset]);
+  }, [defaultValues, reset, formatDateForInput]);
   
 console.log(defaultValues)
 

@@ -10,11 +10,11 @@ function LocationForm({dayplanId}) {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const { state, handlerMap } = useContext(locationContext);
+  const { handlerMap } = useContext(locationContext);
 
   console.log(dayplanId)
 
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit } = useForm();
 
    // Funkce pro zpracování formuláře
    const handleForm = async (formData) => {

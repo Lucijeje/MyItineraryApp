@@ -9,7 +9,7 @@ import Footer from "../components/Footer.js";
 import Logo from "../components/Logo.js";
 
 export default function Root() {
-  const { error, itineraryList, state } = useContext(itineraryContext);
+  const { itineraryList } = useContext(itineraryContext);
 
   console.log(itineraryList)
 

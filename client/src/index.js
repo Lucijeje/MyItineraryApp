@@ -4,7 +4,7 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import { createBrowserRouter, RouterProvider, Link } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import DiaryPage from "./pages/DiaryPage.js"
 import Root from './pages/Root.js';
 import ErrorPage from './pages/ErrorPage.js';

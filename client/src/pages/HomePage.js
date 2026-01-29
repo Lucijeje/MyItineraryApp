@@ -7,9 +7,9 @@ import { diaryEntryContext } from '../components/DiaryEntry/DiaryEntryContext';
 import './HomePage.css';
 
 function HomePage() {
-  const { itineraryList, state: itineraryState } = useContext(itineraryContext);
-  const { dayPlanList, state: dayPlanState } = useContext(dayPlanContext);
-  const { diaryEntryList, state: diaryState } = useContext(diaryEntryContext);
+  const { itineraryList } = useContext(itineraryContext);
+  const { dayPlanList } = useContext(dayPlanContext);
+  const { diaryEntryList } = useContext(diaryEntryContext);
 
   // Calculate statistics
   const totalItineraries = itineraryList?.length || 0;

@@ -9,7 +9,7 @@ function DayPlanForm({dayPlan}) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const { state, handlerMap } = useContext(dayPlanContext);
+  const { handlerMap } = useContext(dayPlanContext);
 
   console.log(dayPlan)
 

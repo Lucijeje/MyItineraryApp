@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { dayPlanContext } from "./DayPlanContext";
 import "./DayPlanList.css"
-import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import LocationList from "../Location/LocationList";
 import LocationForm from "../Location/LocationForm";

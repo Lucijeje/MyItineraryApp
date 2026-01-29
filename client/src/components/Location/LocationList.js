@@ -1,9 +1,6 @@
 
 import { useContext } from "react";
 import { locationContext } from "./LocationContext"; //importuji context pro 
-import Card from 'react-bootstrap/Card';
-import Row from 'react-bootstrap/Row';
-import Button from 'react-bootstrap/Button';
 import DeleteModal from "../DeleteModal";
 import "./LocationList.css"
 

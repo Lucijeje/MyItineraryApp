@@ -6,8 +6,7 @@ import { Link } from 'react-router-dom';
 import './Navigation.css';
 
 function Navigation() {
-  const { error, itineraryList, state } = useContext(itineraryContext);
-  const { diaryEntryList } = useContext(diaryEntryContext);
+  const { itineraryList } = useContext(itineraryContext);
   const [openItineraries, setOpenItineraries] = useState(true);
   const [openDiary, setOpenDiary] = useState(true);
 
