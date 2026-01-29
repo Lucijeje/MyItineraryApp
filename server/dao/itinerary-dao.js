@@ -116,14 +116,19 @@ function get(itineraryId) {
 
 function list() {
   try {
+    console.log("itinerary-dao.list: Reading from folder:", itineraryFolderPath);
     const files = fs.readdirSync(itineraryFolderPath);
+    console.log(`itinerary-dao.list: Found ${files.length} files`);
     const itineraryList = files.map((file) => {
-      const fileData = fs.readFileSync(path.join(itineraryFolderPath, file), "utf8");
+      const filePath = path.join(itineraryFolderPath, file);
+      const fileData = fs.readFileSync(filePath, "utf8");
       return JSON.parse(fileData);
     });
+    console.log(`itinerary-dao.list: Returning ${itineraryList.length} itineraries`);
     return itineraryList;
   } catch (error) {
-    throw { code: "failedToListItinerarys", itinerary: error.itinerary };
+    console.error("itinerary-dao.list: Error:", error);
+    throw { code: "failedToListItinerarys", itinerary: error.itinerary, message: error.message };
   }
 }
 

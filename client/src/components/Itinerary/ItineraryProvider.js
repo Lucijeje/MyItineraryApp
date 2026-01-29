@@ -33,12 +33,20 @@ function ItineraryProvider({ children }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        console.log("Fetching itineraries from:", `${API_BASE_URL}/itinerary/list`);
         const response = await fetch(`${API_BASE_URL}/itinerary/list`);
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
         const data = await response.json();
+        console.log("Received data:", data);
         const sortedData = sortItinerariesByDate(data);
         setItineraryLoadObject({ state: "ready", data: sortedData });
       } catch (error) {
-        console.log("Chyba při načítání dat z API:", error);
+        console.error("Chyba při načítání dat z API:", error);
+        console.error("API URL:", API_BASE_URL);
         setItineraryLoadObject({ state: "error", error: error, data: [] });
       }
     };
