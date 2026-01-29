@@ -1,0 +1,9 @@
+@media only screen and (max-width: 992px) {
+
+.full-width-button {
+    width: 100%; /* Šířka tlačítka bude vždy 100% kontejneru */
+    max-width: 1040px; /* Maximální šířka tlačítka */
+    margin: 0 auto; /* Centrování tlačítka pokud není 100% šířky stránky */
+  }
+}
+  

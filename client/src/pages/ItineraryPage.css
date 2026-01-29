@@ -1,0 +1,210 @@
+.itineraryContainer{
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    font-size: small;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+
+  @media (max-width: 992px) {
+    .full-width-button {
+      width: 100%; /* Šířka tlačítka bude 100% pouze na menších obrazovkách */
+      margin: 0 auto; /* Centrování tlačítka pokud není 100% šířky stránky */
+      margin-bottom: 0.5rem;
+    }
+  }
+
+.itineraryContainerHeader {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 16px;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-lg);
+}
+
+.itineraryContainerHeader h1 {
+    margin: 0 0 1rem 0;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.itineraryContainerHeader p {
+    margin: 0;
+    opacity: 0.95;
+    line-height: 1.6;
+}
+
+.itineraryContainerOverview {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-md);
+    position: relative;
+}
+
+.itineraryContainerOverview h2 {
+    color: var(--primary-color);
+    margin-top: 0;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.itineraryDataCard {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-md);
+    border-left: 4px solid var(--primary-color);
+}
+
+.itineraryDataHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--bg-tertiary);
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.itineraryDataHeader h3 {
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.itineraryDataHeader .buttons {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.itineraryInfoDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.infoItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.infoItem:hover {
+    background: var(--bg-tertiary);
+    transform: translateX(4px);
+}
+
+.infoItemFull {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.infoIcon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.infoContent {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    flex: 1;
+}
+
+.infoLabel {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.infoValue {
+    font-size: 1rem;
+    color: var(--text-primary);
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.infoItemFull .infoValue {
+    line-height: 1.7;
+}
+
+.diaryContainerList {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-md);
+    position: relative;
+}
+
+.dismiss-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    line-height: 1;
+    padding: 0;
+}
+
+.dismiss-button:hover {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    transform: scale(1.1);
+}
+
+.diaryContainerList h2 {
+    color: var(--primary-color);
+    margin-top: 0;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.diaryContainerList p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+  @media only screen and (min-width: 992px) {
+
+    .itineraryContainer{
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        text-align: left;
+        font-size: medium;
+    }
+
+}

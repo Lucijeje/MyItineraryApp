@@ -1,0 +1,75 @@
+.diaryentryList{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 1.5rem;
+}
+
+.cardContainer {
+    margin-top: 0;
+    display: flex;
+    background: white;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.cardContainer:hover {
+    box-shadow: var(--shadow-xl);
+    transform: translateY(-2px);
+}
+
+.cardbuttons{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.cardBody {
+    overflow: auto;
+    padding: 1.5rem;
+}
+
+.cardBody .card-title {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.cardBody .card-subtitle {
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.cardBody .card-text {
+    color: var(--text-primary);
+    line-height: 1.7;
+    white-space: pre-wrap;
+}
+
+.cardFooter {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding: 1rem 1.5rem;
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+    gap: 0.5rem;
+}
+
+@media only screen and (min-width: 992px) {
+    .cardFooter {
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: row;
+        gap: 0.75rem;
+    }
+    
+    .cardbuttons {
+        flex-direction: row;
+    }
+}
