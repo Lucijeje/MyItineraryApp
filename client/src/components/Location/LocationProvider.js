@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { locationContext } from "./LocationContext.js";
+import API_BASE_URL from "../../config/api.js";
 
 
 function LocationProvider({ children }) {
@@ -12,7 +13,7 @@ function LocationProvider({ children }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:2000/location/list");
+        const response = await fetch(`${API_BASE_URL}/location/list`);
         const data = await response.json();
         setLocationLoadObject({ state: "ready", data: data });
         console.log(data)
@@ -28,7 +29,7 @@ function LocationProvider({ children }) {
   async function locationCreate(dtoIn) {
     console.log(dtoIn)
     setLocationLoadObject((current) => ({ ...current, state: "pending" }));
-    const response = await fetch(`http://localhost:2000/location/create`, {
+    const response = await fetch(`${API_BASE_URL}/location/create`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -55,7 +56,7 @@ function LocationProvider({ children }) {
 
   async function locationUpdate(dtoIn) {
     setLocationLoadObject((current) => ({ ...current, state: "pending" }));
-    const response = await fetch(`http://localhost:2000/location/update`, {
+    const response = await fetch(`${API_BASE_URL}/location/update`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(dtoIn),
@@ -85,7 +86,7 @@ function LocationProvider({ children }) {
   async function locationDelete(dtoIn) {
     console.log(dtoIn);
     setLocationLoadObject((current) => ({ ...current, state: "pending" }));
-    const response = await fetch(`http://localhost:2000/location/delete`, {
+    const response = await fetch(`${API_BASE_URL}/location/delete`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

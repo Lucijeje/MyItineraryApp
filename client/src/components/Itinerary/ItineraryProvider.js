@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { itineraryContext } from "./ItineraryContext.js";
+import API_BASE_URL from "../../config/api.js";
 
 
 function ItineraryProvider({ children }) {
@@ -32,7 +33,7 @@ function ItineraryProvider({ children }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:2000/itinerary/list");
+        const response = await fetch(`${API_BASE_URL}/itinerary/list`);
         const data = await response.json();
         const sortedData = sortItinerariesByDate(data);
         setItineraryLoadObject({ state: "ready", data: sortedData });
@@ -48,7 +49,7 @@ function ItineraryProvider({ children }) {
   async function itineraryCreate(dtoIn) {
     console.log(dtoIn)
     setItineraryLoadObject((current) => ({ ...current, state: "pending" }));
-    const response = await fetch(`http://localhost:2000/itinerary/create`, {
+    const response = await fetch(`${API_BASE_URL}/itinerary/create`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -77,7 +78,7 @@ function ItineraryProvider({ children }) {
 
   async function itineraryUpdate(dtoIn) {
     setItineraryLoadObject((current) => ({ ...current, state: "pending" }));
-    const response = await fetch(`http://localhost:2000/itinerary/update`, {
+    const response = await fetch(`${API_BASE_URL}/itinerary/update`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(dtoIn),
@@ -111,7 +112,7 @@ function ItineraryProvider({ children }) {
   async function itineraryDelete(dtoIn) {
     console.log(dtoIn);
     setItineraryLoadObject((current) => ({ ...current, state: "pending" }));
-    const response = await fetch(`http://localhost:2000/itinerary/delete`, {
+    const response = await fetch(`${API_BASE_URL}/itinerary/delete`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

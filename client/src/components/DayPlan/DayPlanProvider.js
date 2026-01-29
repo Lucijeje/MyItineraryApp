@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { dayPlanContext } from "./DayPlanContext.js";
+import API_BASE_URL from "../../config/api.js";
 
 
 function DayPlanProvider({ children }) {
@@ -12,7 +13,7 @@ function DayPlanProvider({ children }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:2000/dayPlan/list");
+        const response = await fetch(`${API_BASE_URL}/dayPlan/list`);
         const data = await response.json();
         setDayPlanLoadObject({ state: "ready", data: data });
         console.log(data)
@@ -28,7 +29,7 @@ function DayPlanProvider({ children }) {
   async function dayPlanCreate(dtoIn) {
     console.log(dtoIn)
     setDayPlanLoadObject((current) => ({ ...current, state: "pending" }));
-    const response = await fetch(`http://localhost:2000/dayPlan/create`, {
+    const response = await fetch(`${API_BASE_URL}/dayPlan/create`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -55,7 +56,7 @@ function DayPlanProvider({ children }) {
 
   async function dayPlanUpdate(dtoIn) {
     setDayPlanLoadObject((current) => ({ ...current, state: "pending" }));
-    const response = await fetch(`http://localhost:2000/dayPlan/update`, {
+    const response = await fetch(`${API_BASE_URL}/dayPlan/update`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(dtoIn),
@@ -85,7 +86,7 @@ function DayPlanProvider({ children }) {
   async function dayPlanDelete(dtoIn) {
     console.log(dtoIn);
     setDayPlanLoadObject((current) => ({ ...current, state: "pending" }));
-    const response = await fetch(`http://localhost:2000/dayPlan/delete`, {
+    const response = await fetch(`${API_BASE_URL}/dayPlan/delete`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

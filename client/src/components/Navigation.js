@@ -2,6 +2,7 @@
 import { itineraryContext } from "./Itinerary/ItineraryContext";
 import { useContext, useState } from "react";
 import { diaryEntryContext } from './DiaryEntry/DiaryEntryContext';
+import { Link } from 'react-router-dom';
 import './Navigation.css';
 
 function Navigation() {
@@ -63,9 +64,9 @@ function Navigation() {
                 if (!hasName && !hasDates) return null;
 
                 return (
-                  <a
+                  <Link
                     key={itinerary.id}
-                    href={`/itinerary/${itinerary.id}`}
+                    to={`/itinerary/${itinerary.id}`}
                     className="nav-section-item"
                   >
                     <span className="nav-section-item-title">
@@ -76,7 +77,7 @@ function Navigation() {
                         {itinerary.startDate} - {itinerary.endDate}
                       </span>
                     )}
-                  </a>
+                  </Link>
                 );
               })
             ) : (
@@ -107,9 +108,9 @@ function Navigation() {
                 if (!hasName && !hasDates) return null;
 
                 return (
-                  <a
+                  <Link
                     key={itinerary.id}
-                    href={`/diary/${itinerary.id}`}
+                    to={`/diary/${itinerary.id}`}
                     className="nav-section-item"
                   >
                     <span className="nav-section-item-title">
@@ -120,7 +121,7 @@ function Navigation() {
                         {itinerary.startDate} - {itinerary.endDate}
                       </span>
                     )}
-                  </a>
+                  </Link>
                 );
               })
             ) : (

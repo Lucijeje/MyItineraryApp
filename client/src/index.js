@@ -35,7 +35,9 @@ const router = createBrowserRouter([
       element: <DiaryPage />,
       }
     
-    ]}]);
+    ]}], {
+  basename: process.env.PUBLIC_URL || ''
+});
 
 
 /*createRoot(document.querySelector('#app')).render(

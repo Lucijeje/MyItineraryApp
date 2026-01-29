@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { diaryEntryContext } from "./DiaryEntryContext.js";
+import API_BASE_URL from "../../config/api.js";
 
 
 function DiaryEntryProvider({ children }) {
@@ -12,7 +13,7 @@ function DiaryEntryProvider({ children }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:2000/diaryEntry/list");
+        const response = await fetch(`${API_BASE_URL}/diaryEntry/list`);
         const data = await response.json();
         setDiaryEntryLoadObject({ state: "ready", data: data });
         console.log(data)
@@ -28,7 +29,7 @@ function DiaryEntryProvider({ children }) {
   async function diaryEntryCreate(dtoIn) {
     console.log(dtoIn)
     setDiaryEntryLoadObject((current) => ({ ...current, state: "pending" }));
-    const response = await fetch(`http://localhost:2000/diaryEntry/create`, {
+    const response = await fetch(`${API_BASE_URL}/diaryEntry/create`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -55,7 +56,7 @@ function DiaryEntryProvider({ children }) {
 
   async function diaryEntryUpdate(dtoIn) {
     setDiaryEntryLoadObject((current) => ({ ...current, state: "pending" }));
-    const response = await fetch(`http://localhost:2000/diaryEntry/update`, {
+    const response = await fetch(`${API_BASE_URL}/diaryEntry/update`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(dtoIn),
@@ -85,7 +86,7 @@ function DiaryEntryProvider({ children }) {
   async function diaryEntryDelete(dtoIn) {
     console.log(dtoIn);
     setDiaryEntryLoadObject((current) => ({ ...current, state: "pending" }));
-    const response = await fetch(`http://localhost:2000/diaryEntry/delete`, {
+    const response = await fetch(`${API_BASE_URL}/diaryEntry/delete`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

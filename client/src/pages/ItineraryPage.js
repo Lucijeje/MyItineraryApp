@@ -30,6 +30,16 @@ const ItineraryPage = () => {// do komponenty posílám prosps s itineraryList
   
   let { itineraryId } = useParams();
   
+  // Show loading state while data is being fetched
+  if (state === "pending") {
+    return <div className="loading-state"><h3>Loading...</h3><p>Please wait while we load your itinerary data.</p></div>;
+  }
+  
+  // Show error state if there's an error
+  if (error) {
+    return <div className="error-state"><h3>Error</h3><p>Failed to load itinerary data. Please try refreshing the page.</p></div>;
+  }
+  
   const itineraryData = itineraryList.find((inv) => inv.id === itineraryId);
   console.log(itineraryData)
  
