@@ -71,6 +71,10 @@ For production, set `REACT_APP_API_URL` to your backend server URL.
 
 ## Deployment
 
+### Backend (Heroku)
+
+The backend is deployed on Heroku at: https://my-itineraty-app-15b4c02b28f6.herokuapp.com/
+
 ### GitHub Pages
 
 The application is configured for automatic deployment to GitHub Pages using GitHub Actions.
